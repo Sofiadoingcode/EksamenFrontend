@@ -1,0 +1,31 @@
+.h1title {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.05;
+    color: white;
+    letter-spacing: -0.5px;
+    margin-bottom: 3.2rem;
+}
+
+.h2title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.05;
+    color: #0b5394;
+    letter-spacing: -0.5px;
+    margin-bottom: 3.2rem;
+}
+
+.header_box {
+    max-width: 600rem;
+    align-items: center;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #0b5394;
+
+}
+
+.index-col-header {
+    margin-left: 50px;
+
+}
