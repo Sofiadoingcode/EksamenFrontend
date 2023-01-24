@@ -12,7 +12,7 @@ function Admin(props) {
     },[])
     return (
         <div>
-            <AllBoats/>
+
         </div>
 
     );

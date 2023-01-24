@@ -11,9 +11,6 @@ function User(props) {
     },[])
     return (
         <div>
-            <Owners/>
-            <BoatsInHarbour/>
-            <OwnersOnBoat/>
 
 
         </div>
