@@ -18,14 +18,17 @@ function Developer(props) {
         billingPrHour: ""
     });
 
+    const fixSizeStyle = {
+        width: '50%'
 
+    }
 
     useEffect(() => {
         if (apiFacade.loggedIn()){
             projectFacade.fetchGetDevFromUsername(apiFacade.decodeJwt().username)
                 .then((res) => res = res)
                 .then(data => {setDev(data)})
-                .then(res => setIsFetched(!isFetched));
+                .then((res) => setIsFetched(!isFetched));
         }
     }, [isChanged]);
 
@@ -47,7 +50,7 @@ function Developer(props) {
         <div>
             <div className="background">
                 <>
-                    <div style={{padding: "2rem"}}>
+                    {/*<div style={{padding: "2rem"}}>*/}
                         <div className="row mt-4 header_box">
                             <div className="index-col-header">
 
@@ -64,31 +67,31 @@ function Developer(props) {
                         {
                             projects.map(
                                 project =>
-                                    <div className="card">
+                                    <div className="card" style={fixSizeStyle}>
                                         {/*<img src={boat.image} className="card-img-top" alt="..."/>*/}
                                         <div className="card-body">
                                             <h5 className="card-title">{project.name} (ID: {project.id})</h5>
                                             <p className="card-text">{project.description}</p>
-                                            {/*<td><SeeProjectHours setIsChanged={setIsChanged} isChanged={isChanged}/></td>*/}
-                                            <nav>
-                                                <ul className="postTypes" style={{listStyle:"none"}}>
-                                                        <NavLink
-                                                            to="seeprojecthours"
-                                                            className={({isActive}) =>
-                                                                isActive ? "postype-active" : "posttype-inactive"
-                                                            }
-                                                        >
-                                                            Project Hours
-                                                        </NavLink>
-                                                </ul>
-                                            </nav>
+                                            <div><SeeProjectHours project={project} setIsChanged={setIsChanged} isChanged={isChanged}/></div>
+                                            {/*<nav>*/}
+                                            {/*    <ul className="postTypes" style={{listStyle:"none"}}>*/}
+                                            {/*            <NavLink*/}
+                                            {/*                to="seeprojecthours"*/}
+                                            {/*                className={({isActive}) =>*/}
+                                            {/*                    isActive ? "postype-active" : "posttype-inactive"*/}
+                                            {/*                }*/}
+                                            {/*             onClick={}>*/}
+                                            {/*                Project Hours*/}
+                                            {/*            </NavLink>*/}
+                                            {/*    </ul>*/}
+                                            {/*</nav>*/}
 
                                         </div>
                                     </div>
                             )
                         }
 
-                    </div>
+                    {/*</div>*/}
                     <div className="sideBySide" style={{padding: "2rem"}}>
                         <div><CreateProjectHours setIsChanged={setIsChanged} isChanged={isChanged} dev={dev}/></div>
 

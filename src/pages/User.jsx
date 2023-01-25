@@ -9,7 +9,7 @@ function User(props) {
     },[])
     return (
         <div>
-            <Developer/>
+            <Developer chosenProject={props.chosenProject} setChosenProject={props.setChosenProject}/>
 
         </div>
 
