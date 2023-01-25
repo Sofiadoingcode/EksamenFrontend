@@ -37,10 +37,10 @@ function projectFacade() {
     //     return fetch(URL + "/api/owners/boat/" + id, options).then(handleHttpErrors);
     // }
     //
-    // const fetchCreateBoat = (boat) => {
-    //     const options = apiFacade.makeOptions("POST", false, boat);
-    //     return fetch(URL + "/api/boats/", options).then(handleHttpErrors);
-    // }
+    const fetchCreateProject = (project) => {
+        const options = apiFacade.makeOptions("POST", false, project);
+        return fetch(URL + "/api/projects/", options).then(handleHttpErrors);
+    }
     //
     // const fetchConnectBoatWithHarbour = (boatID, harbourID) => {
     //     const options = apiFacade.makeOptions("PUT", false);
@@ -62,10 +62,10 @@ function projectFacade() {
 
     return {
 
-        fetchAllProjects
+        fetchAllProjects,
         // fetchBoatsInHarbour,
         // fetchOwnersOnBoat,
-        // fetchCreateBoat,
+        fetchCreateProject
         // fetchConnectBoatWithHarbour,
         // fetchUpdateBoat,
         //     fetchBoatByID,
