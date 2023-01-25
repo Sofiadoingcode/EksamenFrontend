@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import projectFacade from "../utils/projectFacade.js";
 import DeletePH from "./DeletePH.jsx";
+import UpdatePH from "./UpdatePH";
 
 function SeeProjectHours(props) {
 
     const [toggle, setToggle] = useState(false);
     const[projectHours, setProjectsHours] = useState([]);
+    const [popUp, setPopUp] = useState(false);
+
 
     const button ={
         backgroundColor: '#0b5394',
@@ -19,6 +22,9 @@ function SeeProjectHours(props) {
     }
 
 
+    const togglePopUp = () => {
+        setPopUp(!popUp);
+    };
 
     const handleOnClick = (evt) => {
         evt.preventDefault();
@@ -52,6 +58,13 @@ function SeeProjectHours(props) {
                                         <p className="card-text">Description: {ph.description}</p>
                                         <p className="card-text">Hours Spent: {ph.hoursSpent}</p>
                                         <div><DeletePH phID={ph.id} setIsChanged={props.setIsChanged} isChanged={props.isChanged}/></div>
+                                        <button onClick={togglePopUp}>Update</button>
+                                        <div>
+                                            {popUp && (
+                                                <UpdatePH phID={ph.id} popUp={popUp} setPopUp={setPopUp} togglePopUp={togglePopUp} setIsChanged={props.setIsChanged} isChanged={props.isChanged}/>
+                                            )}
+                                        </div>
+
                                     </div>
                                 </div>
                         )
