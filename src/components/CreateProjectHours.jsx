@@ -23,7 +23,7 @@ function CreateProjectHours(props) {
                 <div className="input-group-prepend">
                     <span className="input-group-text" >Hours Spent</span>
                 </div>
-                <input type="number" id="hoursspent" className="form-control input_field" aria-label="Name"
+                <input type="number" id="hoursSpent" className="form-control input_field" aria-label="Name"
                        onChange={onChange}
                        aria-describedby="basic-addon1"/>
             </div>
@@ -32,7 +32,7 @@ function CreateProjectHours(props) {
                 <div className="input-group-prepend">
                     <span className="input-group-text" >User Story</span>
                 </div>
-                <input type="number" id="userstory" className="form-control input_field" aria-label="Name"
+                <input type="number" id="userStory" className="form-control input_field" aria-label="Name"
                        onChange={onChange}
                        aria-describedby="basic-addon1"/>
             </div>

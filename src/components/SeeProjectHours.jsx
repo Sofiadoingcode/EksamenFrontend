@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import projectFacade from "../utils/projectFacade.js";
+import DeletePH from "./DeletePH.jsx";
 
 function SeeProjectHours(props) {
 
@@ -46,14 +47,11 @@ function SeeProjectHours(props) {
                         projectHours.map(
                             ph =>
                                 <div className="card" style={fixSizeStyle}>
-                                    {/*<img src={boat.image} className="card-img-top" alt="..."/>*/}
                                     <div className="card-body">
-                                        <h5 className="card-title">Project Hour with ID {ph.id}</h5>
+                                        <h5 className="card-title">User Story: {ph.userStory}</h5>
                                         <p className="card-text">Description: {ph.description}</p>
                                         <p className="card-text">Hours Spent: {ph.hoursSpent}</p>
-                                        <p className="card-text">User Story: {ph.userStory}</p>
-                                        {/*<td><DeleteBoat boatID={boat.id} setIsChanged={setBoatsChanged}*/}
-                                        {/*                isChanged={boatsChanged}/></td>*/}
+                                        <div><DeletePH phID={ph.id} setIsChanged={props.setIsChanged} isChanged={props.isChanged}/></div>
                                     </div>
                                 </div>
                         )

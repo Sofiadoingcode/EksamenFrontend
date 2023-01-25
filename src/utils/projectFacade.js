@@ -62,15 +62,15 @@ function projectFacade() {
         return fetch(URL + "/api/developers/user/" + username, options).then(handleHttpErrors);
     }
     //
-    // const fetchUpdateBoat = (boatID, updatedBoat) => {
-    //     const options = apiFacade.makeOptions("PUT", false, updatedBoat);
-    //     return fetch(URL + "/api/boats/update/" + boatID, options).then(handleHttpErrors);
-    // }
+    const fetchUpdatePH = (id, updatedPH) => {
+        const options = apiFacade.makeOptions("PUT", false, updatedPH);
+        return fetch(URL + "/api/ph/update/" + id, options).then(handleHttpErrors);
+    }
     //
-    // const fetchDeleteBoat = (boatID) => {
-    //     const options = apiFacade.makeOptions("DELETE", false);
-    //     return fetch(URL + "/api/boats/" + boatID, options).then(handleHttpErrors);
-    // }
+    const fetchDeletePH = (id) => {
+        const options = apiFacade.makeOptions("DELETE", false);
+        return fetch(URL + "/api/ph/" + id, options).then(handleHttpErrors);
+    }
 
 
 
@@ -78,17 +78,15 @@ function projectFacade() {
     return {
 
         fetchAllProjects,
-        // fetchBoatsInHarbour,
         fetchProjectsOnDev,
         fetchCreateProject,
         fetchAddDevToProject,
         fetchGetDevFromUsername,
         fetchCreateProjectHours,
-        fetchProjectHoursOnProject
-        // fetchUpdateBoat,
-        //     fetchBoatByID,
-        //     fetchAllBoats,
-        //     fetchDeleteBoat
+        fetchProjectHoursOnProject,
+        fetchDeletePH,
+        fetchUpdatePH
+
 
     }
 
