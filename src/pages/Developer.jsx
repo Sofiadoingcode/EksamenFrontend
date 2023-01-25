@@ -6,16 +6,37 @@ import AddDevToProject from "../components/AddDevToProject.jsx";
 
 function Developer(props) {
     const[projects, setProjects] = useState([]);
+    const[isChanged, setIsChanged] = useState({});
+    const [dev, setDev] = useState({
+        id: "",
+        name: "",
+        phone: "",
+        billingPrHour: ""
+    });
+
+
 
     useEffect(() => {
         if (apiFacade.loggedIn()){
-            projectFacade.fetchProjectsOnDev(apiFacade.decodeJwt().developer.id)
+            projectFacade.fetchGetDevFromUsername(apiFacade.decodeJwt().username)
                 .then((res) => res = res)
-                .then(data => {
-                    setProjects(data);
-                })
+                .then(data => {setDev(data)})
+                .then(res => setIsChanged(!isChanged));
         }
     }, []);
+
+
+
+    useEffect(() => {
+        if (apiFacade.loggedIn()){
+            projectFacade.fetchProjectsOnDev(dev.id)
+                .then((res) => res = res)
+                .then(data => {setProjects(data)})
+        }
+    }, [isChanged]);
+
+
+
 
 
     return (
@@ -52,7 +73,7 @@ function Developer(props) {
                         }
 
                     </div>
-                    
+
 
                 </>
 

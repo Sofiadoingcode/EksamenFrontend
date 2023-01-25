@@ -85,6 +85,11 @@ function apiFacade() {
         return fetch(URL + "/api/jokes", options).then(handleHttpErrors);
     }
 
+    const fetchGetUserByID = (id) => {
+        const options = makeOptions("GET", true);
+        return fetch(URL + "/api/info/userbyid/" + id, options).then(handleHttpErrors);
+    }
+
 
 
 
@@ -98,7 +103,8 @@ function apiFacade() {
         fetchData,
         fetchAdminData,
         fetchJokes,
-        decodeJwt
+        decodeJwt,
+        fetchGetUserByID
     }
 }
 
