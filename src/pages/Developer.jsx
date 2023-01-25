@@ -72,7 +72,7 @@ function Developer(props) {
                                         <div className="card-body">
                                             <h5 className="card-title">{project.name} (ID: {project.id})</h5>
                                             <p className="card-text">{project.description}</p>
-                                            <div><SeeProjectHours project={project} setIsChanged={setIsChanged} isChanged={isChanged}/></div>
+                                            <div><SeeProjectHours project={project} setIsChanged={setIsChanged} isChanged={isChanged} dev={dev}/></div>
                                             {/*<nav>*/}
                                             {/*    <ul className="postTypes" style={{listStyle:"none"}}>*/}
                                             {/*            <NavLink*/}

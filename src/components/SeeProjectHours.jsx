@@ -28,7 +28,7 @@ function SeeProjectHours(props) {
 
     const handleOnClick = (evt) => {
         evt.preventDefault();
-        projectFacade.fetchProjectHoursOnProject(props.project.id)
+        projectFacade.fetchProjectHoursOnProject(props.project.id, props.dev.id)
             .then(res => setProjectsHours(res))
             .then(() => toggleToggle())
 
@@ -61,7 +61,7 @@ function SeeProjectHours(props) {
                                         <button onClick={togglePopUp}>Update</button>
                                         <div>
                                             {popUp && (
-                                                <UpdatePH phID={ph.id} popUp={popUp} setPopUp={setPopUp} togglePopUp={togglePopUp} setIsChanged={props.setIsChanged} isChanged={props.isChanged}/>
+                                                <UpdatePH phID={ph.id} popUp={popUp} setPopUp={setPopUp} togglePopUp={togglePopUp} project={props.project} dev={props.dev} setIsChanged={props.setIsChanged} isChanged={props.isChanged}/>
                                             )}
                                         </div>
 

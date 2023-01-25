@@ -45,7 +45,7 @@ function UpdatePh(props) {
 
                 </div>
                 <button onClick={() => {
-                    projectFacade.fetchUpdatePH(props.phID, ph).then(res => res = res).then(props.togglePopUp);
+                    projectFacade.fetchUpdatePH(props.phID, props.project.id, props.dev.id, ph).then(res => res = res).then(props.togglePopUp);
 
                 }}>Update</button>
 
