@@ -32,11 +32,11 @@ function projectFacade() {
     //     return fetch(URL + "/api/boats/" + id, options).then(handleHttpErrors);
     // }
     //
-    // const fetchOwnersOnBoat = (id) => {
-    //     const options = apiFacade.makeOptions("GET", false);
-    //     return fetch(URL + "/api/owners/boat/" + id, options).then(handleHttpErrors);
-    // }
-    //
+    const fetchProjectsOnDev = (id) => {
+        const options = apiFacade.makeOptions("GET", false);
+        return fetch(URL + "/api/projects/dev/" + id, options).then(handleHttpErrors);
+    }
+
     const fetchCreateProject = (project) => {
         const options = apiFacade.makeOptions("POST", false, project);
         return fetch(URL + "/api/projects/", options).then(handleHttpErrors);
@@ -44,7 +44,7 @@ function projectFacade() {
     //
     const fetchAddDevToProject = (devID, projectID) => {
         const options = apiFacade.makeOptions("PUT", false);
-        return fetch(URL + "/api/projects/dev/" + devID + "/" + projectID, options).then(handleHttpErrors);
+        return fetch(URL + "/api/projects/connectdev/" + devID + "/" + projectID, options).then(handleHttpErrors);
     }
     //
     // const fetchUpdateBoat = (boatID, updatedBoat) => {
@@ -64,7 +64,7 @@ function projectFacade() {
 
         fetchAllProjects,
         // fetchBoatsInHarbour,
-        // fetchOwnersOnBoat,
+        fetchProjectsOnDev,
         fetchCreateProject,
         fetchAddDevToProject,
         // fetchUpdateBoat,
