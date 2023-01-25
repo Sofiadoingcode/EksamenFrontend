@@ -3,6 +3,7 @@ import projectFacade from "../utils/projectFacade.js";
 import "../styles/style.css";
 import "../styles/text.css";
 import CreateProject from "./CreateProject.jsx";
+import AddDevToProject from "./AddDevToProject.jsx";
 
 function Projects(props) {
     const [projects, setProjects] = useState([])
@@ -50,7 +51,7 @@ function Projects(props) {
                     </div>
                     <div className="sideBySide" style={{padding: "2rem"}}>
                         <div><CreateProject setIsChanged={setProjectsChanged} isChanged={projectsChanged}/></div>
-
+                        <div><AddDevToProject setIsChanged={setProjectsChanged} isChanged={projectsChanged}/></div>
 
                     </div>
 
