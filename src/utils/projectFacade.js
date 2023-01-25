@@ -42,6 +42,11 @@ function projectFacade() {
         return fetch(URL + "/api/ph/project/" + id, options).then(handleHttpErrors);
     }
 
+    const fetchProjectHoursOnProjectAndDev = (projectID, devID) => {
+        const options = apiFacade.makeOptions("GET", false);
+        return fetch(URL + "/api/ph/project/dev/" + projectID + "/" + devID, options).then(handleHttpErrors);
+    }
+
     const fetchCreateProject = (project) => {
         const options = apiFacade.makeOptions("POST", false, project);
         return fetch(URL + "/api/projects/", options).then(handleHttpErrors);
@@ -61,12 +66,12 @@ function projectFacade() {
         const options = apiFacade.makeOptions("GET", true);
         return fetch(URL + "/api/developers/user/" + username, options).then(handleHttpErrors);
     }
-    //
-    const fetchUpdatePH = (id, updatedPH) => {
+
+    const fetchUpdatePH = (id, projectID, devID, updatedPH) => {
         const options = apiFacade.makeOptions("PUT", false, updatedPH);
-        return fetch(URL + "/api/ph/update/" + id, options).then(handleHttpErrors);
+        return fetch(URL + "/api/ph/update/" + id + "/" + projectID + "/" + devID, options).then(handleHttpErrors);
     }
-    //
+
     const fetchDeletePH = (id) => {
         const options = apiFacade.makeOptions("DELETE", false);
         return fetch(URL + "/api/ph/" + id, options).then(handleHttpErrors);
@@ -84,6 +89,7 @@ function projectFacade() {
         fetchGetDevFromUsername,
         fetchCreateProjectHours,
         fetchProjectHoursOnProject,
+        fetchProjectHoursOnProjectAndDev,
         fetchDeletePH,
         fetchUpdatePH
 

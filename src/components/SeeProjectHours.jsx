@@ -28,7 +28,7 @@ function SeeProjectHours(props) {
 
     const handleOnClick = (evt) => {
         evt.preventDefault();
-        projectFacade.fetchProjectHoursOnProject(props.project.id, props.dev.id)
+        projectFacade.fetchProjectHoursOnProjectAndDev(props.project.id, props.dev.id)
             .then(res => setProjectsHours(res))
             .then(() => toggleToggle())
 
