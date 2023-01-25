@@ -4,6 +4,8 @@ import projectFacade from "../utils/projectFacade.js";
 import CreateProject from "../components/CreateProject.jsx";
 import AddDevToProject from "../components/AddDevToProject.jsx";
 import CreateProjectHours from "../components/CreateProjectHours.jsx";
+import SeeProjectHours from "../components/SeeProjectHours.jsx";
+import {NavLink} from "react-router-dom";
 
 function Developer(props) {
     const[projects, setProjects] = useState([]);
@@ -67,8 +69,20 @@ function Developer(props) {
                                         <div className="card-body">
                                             <h5 className="card-title">{project.name} (ID: {project.id})</h5>
                                             <p className="card-text">{project.description}</p>
-                                            {/*<td><DeleteBoat boatID={boat.id} setIsChanged={setBoatsChanged}*/}
-                                            {/*                isChanged={boatsChanged}/></td>*/}
+                                            {/*<td><SeeProjectHours setIsChanged={setIsChanged} isChanged={isChanged}/></td>*/}
+                                            <nav>
+                                                <ul className="postTypes" style={{listStyle:"none"}}>
+                                                        <NavLink
+                                                            to="seeprojecthours"
+                                                            className={({isActive}) =>
+                                                                isActive ? "postype-active" : "posttype-inactive"
+                                                            }
+                                                        >
+                                                            Project Hours
+                                                        </NavLink>
+                                                </ul>
+                                            </nav>
+
                                         </div>
                                     </div>
                             )
