@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import projectFacade from "../utils/projectFacade.js";
 import "../styles/style.css";
 import "../styles/text.css";
-import CreateProject from "./CreateProject.jsx";
-import AddDevToProject from "./AddDevToProject.jsx";
+import CreateProject from "../components/CreateProject.jsx";
+import AddDevToProject from "../components/AddDevToProject.jsx";
 
 function Projects(props) {
     const [projects, setProjects] = useState([])

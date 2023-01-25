@@ -3,11 +3,13 @@ import apiFacade from "../utils/apiFacade.js";
 import projectFacade from "../utils/projectFacade.js";
 import CreateProject from "../components/CreateProject.jsx";
 import AddDevToProject from "../components/AddDevToProject.jsx";
+import CreateProjectHours from "../components/CreateProjectHours.jsx";
 
 function Developer(props) {
     const[projects, setProjects] = useState([]);
+    const[isFetched, setIsFetched] = useState({});
     const[isChanged, setIsChanged] = useState({});
-    const [dev, setDev] = useState({
+    const[dev, setDev] = useState({
         id: "",
         name: "",
         phone: "",
@@ -21,9 +23,9 @@ function Developer(props) {
             projectFacade.fetchGetDevFromUsername(apiFacade.decodeJwt().username)
                 .then((res) => res = res)
                 .then(data => {setDev(data)})
-                .then(res => setIsChanged(!isChanged));
+                .then(res => setIsFetched(!isFetched));
         }
-    }, []);
+    }, [isChanged]);
 
 
 
@@ -33,7 +35,7 @@ function Developer(props) {
                 .then((res) => res = res)
                 .then(data => {setProjects(data)})
         }
-    }, [isChanged]);
+    }, [isFetched]);
 
 
 
@@ -63,7 +65,7 @@ function Developer(props) {
                                     <div className="card">
                                         {/*<img src={boat.image} className="card-img-top" alt="..."/>*/}
                                         <div className="card-body">
-                                            <h5 className="card-title">{project.name}</h5>
+                                            <h5 className="card-title">{project.name} (ID: {project.id})</h5>
                                             <p className="card-text">{project.description}</p>
                                             {/*<td><DeleteBoat boatID={boat.id} setIsChanged={setBoatsChanged}*/}
                                             {/*                isChanged={boatsChanged}/></td>*/}
@@ -73,7 +75,10 @@ function Developer(props) {
                         }
 
                     </div>
+                    <div className="sideBySide" style={{padding: "2rem"}}>
+                        <div><CreateProjectHours setIsChanged={setIsChanged} isChanged={isChanged} dev={dev}/></div>
 
+                    </div>
 
                 </>
 

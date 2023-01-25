@@ -41,7 +41,12 @@ function projectFacade() {
         const options = apiFacade.makeOptions("POST", false, project);
         return fetch(URL + "/api/projects/", options).then(handleHttpErrors);
     }
-    //
+
+    const fetchCreateProjectHours = (projectHours, devID, projectID) => {
+        const options = apiFacade.makeOptions("POST", false, projectHours);
+        return fetch(URL + "/api/ph/" + devID + "/" + projectID, options).then(handleHttpErrors);
+    }
+
     const fetchAddDevToProject = (devID, projectID) => {
         const options = apiFacade.makeOptions("PUT", false);
         return fetch(URL + "/api/projects/connectdev/" + devID + "/" + projectID, options).then(handleHttpErrors);
@@ -72,7 +77,8 @@ function projectFacade() {
         fetchProjectsOnDev,
         fetchCreateProject,
         fetchAddDevToProject,
-        fetchGetDevFromUsername
+        fetchGetDevFromUsername,
+        fetchCreateProjectHours
         // fetchUpdateBoat,
         //     fetchBoatByID,
         //     fetchAllBoats,

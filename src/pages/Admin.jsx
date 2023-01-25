@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import facade from "../utils/apiFacade.js";
-import Projects from "../components/Projects.jsx";
+import Projects from "./Projects.jsx";
 
 
 function Admin(props) {
