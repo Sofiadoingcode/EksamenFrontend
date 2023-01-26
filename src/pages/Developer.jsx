@@ -68,23 +68,14 @@ function Developer(props) {
                             projects.map(
                                 project =>
                                     <div className="card" style={fixSizeStyle}>
-                                        {/*<img src={boat.image} className="card-img-top" alt="..."/>*/}
+
                                         <div className="card-body">
                                             <h5 className="card-title">{project.name} (ID: {project.id})</h5>
                                             <p className="card-text">{project.description}</p>
+                                            <p className="card-text">Full Price: </p>
+                                            <p className="card-text">Amount of hours: </p>
                                             <div><SeeProjectHours project={project} setIsChanged={setIsChanged} isChanged={isChanged} dev={dev}/></div>
-                                            {/*<nav>*/}
-                                            {/*    <ul className="postTypes" style={{listStyle:"none"}}>*/}
-                                            {/*            <NavLink*/}
-                                            {/*                to="seeprojecthours"*/}
-                                            {/*                className={({isActive}) =>*/}
-                                            {/*                    isActive ? "postype-active" : "posttype-inactive"*/}
-                                            {/*                }*/}
-                                            {/*             onClick={}>*/}
-                                            {/*                Project Hours*/}
-                                            {/*            </NavLink>*/}
-                                            {/*    </ul>*/}
-                                            {/*</nav>*/}
+
 
                                         </div>
                                     </div>

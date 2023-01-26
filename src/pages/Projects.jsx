@@ -4,6 +4,8 @@ import "../styles/style.css";
 import "../styles/text.css";
 import CreateProject from "../components/CreateProject.jsx";
 import AddDevToProject from "../components/AddDevToProject.jsx";
+import SeeProjectHours from "../components/SeeProjectHours.jsx";
+import SeeProjectHoursFullProject from "../components/SeeProjectHoursFullProject.jsx";
 
 function Projects(props) {
     const [projects, setProjects] = useState([])
@@ -41,8 +43,7 @@ function Projects(props) {
                                         <div className="card-body">
                                             <h5 className="card-title">{project.name}</h5>
                                             <p className="card-text">{project.description}</p>
-                                            {/*<td><DeleteBoat boatID={boat.id} setIsChanged={setBoatsChanged}*/}
-                                            {/*                isChanged={boatsChanged}/></td>*/}
+                                            <div><SeeProjectHoursFullProject project={project} /></div>
                                         </div>
                                     </div>
                             )
