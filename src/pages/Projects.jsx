@@ -6,16 +6,30 @@ import CreateProject from "../components/CreateProject.jsx";
 import AddDevToProject from "../components/AddDevToProject.jsx";
 import SeeProjectHours from "../components/SeeProjectHours.jsx";
 import SeeProjectHoursFullProject from "../components/SeeProjectHoursFullProject.jsx";
+import SeeStats from "../components/SeeStats.jsx";
 
 function Projects(props) {
     const [projects, setProjects] = useState([])
     const [projectsChanged, setProjectsChanged] = useState([]);
+    const[isFetched, setIsFetched] = useState({});
+
+
     useEffect(() => {
         projectFacade.fetchAllProjects()
             .then((res) => res = res)
             .then(data => {
                 setProjects(data);
-            })}, [projectsChanged]);
+            }).then((res) => setIsFetched(!isFetched));
+
+    }, [projectsChanged]);
+
+    useEffect(() => {
+        return () => {
+
+        };
+    }, [isFetched]);
+
+
 
     return (
         <div>
@@ -38,11 +52,13 @@ function Projects(props) {
                         {
                             projects.map(
                                 project =>
+
                                     <div className="card">
                                         {/*<img src={boat.image} className="card-img-top" alt="..."/>*/}
                                         <div className="card-body">
                                             <h5 className="card-title">{project.name}</h5>
                                             <p className="card-text">{project.description}</p>
+                                            <SeeStats project={project}/>
                                             <div><SeeProjectHoursFullProject project={project} /></div>
                                         </div>
                                     </div>

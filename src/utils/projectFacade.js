@@ -27,11 +27,11 @@ function projectFacade() {
     //     return fetch(URL + "/api/boats/harbour/" + id, options).then(handleHttpErrors);
     // }
     //
-    // const fetchBoatByID = (id) => {
-    //     const options = apiFacade.makeOptions("GET", false);
-    //     return fetch(URL + "/api/boats/" + id, options).then(handleHttpErrors);
-    // }
-    //
+    const fetchStats = (projectid) => {
+        const options = apiFacade.makeOptions("GET", false);
+        return fetch(URL + "/api/ph/stats/" + projectid, options).then(handleHttpErrors);
+    }
+
     const fetchProjectsOnDev = (id) => {
         const options = apiFacade.makeOptions("GET", false);
         return fetch(URL + "/api/projects/dev/" + id, options).then(handleHttpErrors);
@@ -91,7 +91,8 @@ function projectFacade() {
         fetchProjectHoursOnProject,
         fetchProjectHoursOnProjectAndDev,
         fetchDeletePH,
-        fetchUpdatePH
+        fetchUpdatePH,
+        fetchStats
 
 
     }
