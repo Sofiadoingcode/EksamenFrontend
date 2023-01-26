@@ -70,9 +70,9 @@ function Developer(props) {
                                     <div className="card" style={fixSizeStyle}>
 
                                         <div className="card-body">
-                                            <h5 className="card-title">{project.name} (ID: {project.id})</h5>
+                                            <h5 className="card-title h2title">{project.name} (ID: {project.id})</h5>
                                             <p className="card-text">{project.description}</p>
-                                            <div><SeeProjectHours project={project} setIsChanged={setIsChanged} isChanged={isChanged} dev={dev}/></div>
+                                            <div><SeeProjectHours project={project} dev={dev}/></div>
 
 
                                         </div>

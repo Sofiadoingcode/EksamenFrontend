@@ -57,13 +57,14 @@ function SeeProjectHours(props) {
                                         <h5 className="card-title">User Story: {ph.userStory}</h5>
                                         <p className="card-text">Description: {ph.description}</p>
                                         <p className="card-text">Hours Spent: {ph.hoursSpent}</p>
-                                        <div><DeletePH phID={ph.id} setIsChanged={props.setIsChanged} isChanged={props.isChanged}/></div>
-                                        <button onClick={togglePopUp}>Update</button>
-                                        <div>
-                                            {popUp && (
-                                                <UpdatePH phID={ph.id} popUp={popUp} setPopUp={setPopUp} togglePopUp={togglePopUp} project={props.project} dev={props.dev} setIsChanged={props.setIsChanged} isChanged={props.isChanged}/>
-                                            )}
-                                        </div>
+                                            <div><DeletePH phID={ph.id}/></div>
+
+                                            <button style={button} onClick={togglePopUp}>Update</button>
+                                            <div>
+                                                {popUp && (
+                                                    <UpdatePH phID={ph.id} popUp={popUp} setPopUp={setPopUp} togglePopUp={togglePopUp} project={props.project} dev={props.dev} setIsChanged={props.setIsChanged} isChanged={props.isChanged}/>
+                                                )}
+                                            </div>
 
                                     </div>
                                 </div>
