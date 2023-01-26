@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import projectFacade from "../utils/projectFacade.js";
 import DeletePH from "./DeletePH.jsx";
 import UpdatePH from "./UpdatePH.jsx";
+import PHStats from "./PHStats";
 
 function SeeProjectHoursFullProject(props) {
     const [toggle, setToggle] = useState(false);
@@ -55,7 +56,7 @@ function SeeProjectHoursFullProject(props) {
                                     <h5 className="card-title">User Story: {ph.userStory}</h5>
                                     <p className="card-text">Description: {ph.description}</p>
                                     <p className="card-text">Hours Spent: {ph.hoursSpent}</p>
-
+                                    <PHStats ph={ph}/>
 
                                 </div>
                             </div>
